@@ -5,6 +5,7 @@ set -e
 cd "$(dirname "$0")"
 msg="${1:-更新文章}"
 
+npx hexo clean
 npx hexo generate
 
 if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
