@@ -71,18 +71,20 @@ city:"Guilin" service:ssh         # 按城市 + 服务检索
 
 {% asset_img shot5.png 搜索引擎语法检索子域名结果 %}
 
-**3. 子域名收集工具（主动聚合）**
+**3. 子域名收集工具**
 
-subfinder 是被动聚合类工具的代表，一条命令即可从多个公开数据源（证书日志、DNS 记录库等）汇总子域名：
+本次实践采用**方案 B：在线工具**——DNSdumpster（https://dnsdumpster.com）。无需本地安装，在页面输入目标域名并验证后，即可自动汇总该域名的子域名、DNS 记录（A / MX / TXT 等）与主机地理分布：
+
+{% asset_img shot6.png DNSdumpster 在线查询结果（一） %}
+{% asset_img shot7.png DNSdumpster 在线查询结果（二） %}
+
+若在本地环境操作，也可以选择命令行工具方案（方案 A）：subfinder 是被动聚合类工具的代表，一条命令即可从多个公开数据源（证书日志、DNS 记录库等）汇总子域名：
 
 ```bash
 subfinder -d example.com -o subdomains.txt
 ```
 
 同类工具还有 OneForAll（国内常用）、amass 等；纯字典爆破（layer、ksubdomain）属于主动方式，速度慢且易触发告警，一般放到最后。
-
-{% asset_img shot6.png 子域名收集结果（一） %}
-{% asset_img shot7.png 子域名收集结果（二） %}
 
 **4. 结果整理**
 
@@ -98,4 +100,4 @@ subfinder -d example.com -o subdomains.txt
 
 ## 五、总结
 
-本次作业对比了 ZoomEye 与 Shodan、FOFA、Censys、Quake、Hunter 等空间搜索引擎的定位与特点，实践了使用 ZoomEye 检索公网资产，并通过证书透明日志与 subfinder 完成了子域名收集。体会是：现代互联网的「暴露面」远比想象中大，攻击者能轻易获取的信息远超普通人的直觉——这也正是资产测绘与子域名梳理作为安全运维日常工作的意义。
+本次作业对比了 ZoomEye 与 Shodan、FOFA、Censys、Quake、Hunter 等空间搜索引擎的定位与特点，实践了使用 ZoomEye 检索公网资产，并通过证书透明日志、搜索引擎语法与在线工具 DNSdumpster 完成了子域名收集。体会是：现代互联网的「暴露面」远比想象中大，攻击者能轻易获取的信息远超普通人的直觉——这也正是资产测绘与子域名梳理作为安全运维日常工作的意义。
