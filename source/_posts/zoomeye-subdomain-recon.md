@@ -2,7 +2,7 @@
 title: 空间搜索引擎对比（ZoomEye 类平台）与子域名收集实践
 date: 2026-10-20
 categories:
-  - 实验报告
+  - 学习笔记
 tags:
   - ZoomEye
   - 空间搜索引擎
