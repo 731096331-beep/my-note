@@ -1,6 +1,6 @@
 ---
 title: curl 命令行工具入门实践
-date: 2026-10-30
+date: 2026-10-27
 categories:
   - 学习笔记
 tags:
@@ -35,6 +35,8 @@ curl --version
 
 第一步先确认 curl 已正确安装，并查看其版本号与支持的协议列表。
 
+{% asset_img shot1.png curl --version 查看版本信息与支持的协议 %}
+
 **2. 发起 GET 请求获取数据**
 
 ```bash
@@ -42,6 +44,8 @@ curl https://api.github.com/users/731096331-beep
 ```
 
 直接跟一个 URL，curl 默认发起 GET 请求并输出响应内容。这里请求 GitHub 的开放 API，返回一段 JSON 格式的用户信息——这正是 API 调试的典型场景：在命令行里直接查看接口的原始返回。
+
+{% asset_img shot2.png curl 请求 GitHub API 返回 JSON 数据 %}
 
 **3. 只看响应头**
 
@@ -51,6 +55,8 @@ curl -I https://731096331-beep.github.io/my-note/
 
 `-I`（HEAD 请求）只返回 HTTP 响应头，不下载页面正文。响应头中包含状态码（200）、服务器类型（GitHub Pages）、缓存策略等信息，是排查网站是否正常响应的快捷手段。
 
+{% asset_img shot3.png curl -I 只查看 HTTP 响应头 %}
+
 **4. 下载并保存文件**
 
 ```bash
@@ -59,6 +65,8 @@ curl -o mynote.html https://731096331-beep.github.io/my-note/
 
 `-o` 指定保存的文件名，把网页内容下载到本地。再用 `ls` 确认文件已生成，可以看到文件大小与网页体积一致。
 
+{% asset_img shot4.png curl -o 下载网页并用 ls 确认文件生成 %}
+
 **5. 查看完整通信过程**
 
 ```bash
@@ -66,6 +74,8 @@ curl -v https://api.github.com/users/731096331-beep
 ```
 
 `-v`（verbose）展示请求的完整过程：包括 DNS 解析、TLS 握手、发出的请求头（`>` 开头）与收到的响应头（`<` 开头）。这是排查网络问题（如证书错误、超时、重定向）时最有用的一个参数。
+
+{% asset_img shot5.png curl -v 查看完整通信过程 %}
 
 ## 三、常用参数速查
 
