@@ -78,7 +78,7 @@ city:"Guilin" service:ssh         # 按城市 + 服务检索
 {% asset_img shot6.png DNSdumpster 在线查询结果（一） %}
 {% asset_img shot7.png DNSdumpster 在线查询结果（二） %}
 
-若在本地环境操作，也可以选择命令行工具方案（方案 A）：subfinder 是被动聚合类工具的代表，一条命令即可从多个公开数据源（证书日志、DNS 记录库等）汇总子域名：
+若在本地环境操作，也可以选择命令行工具方案：subfinder 是被动聚合类工具的代表，一条命令即可从多个公开数据源（证书日志、DNS 记录库等）汇总子域名：
 
 ```bash
 subfinder -d example.com -o subdomains.txt
