@@ -73,7 +73,7 @@ city:"Guilin" service:ssh         # 按城市 + 服务检索
 
 **3. 子域名收集工具**
 
-本次实践采用**方案 B：在线工具**——DNSdumpster（https://dnsdumpster.com）。无需本地安装，在页面输入目标域名并验证后，即可自动汇总该域名的子域名、DNS 记录（A / MX / TXT 等）与主机地理分布：
+本次实践采用**在线工具**——DNSdumpster（https://dnsdumpster.com）。无需本地安装，在页面输入目标域名并验证后，即可自动汇总该域名的子域名、DNS 记录（A / MX / TXT 等）与主机地理分布：
 
 {% asset_img shot6.png DNSdumpster 在线查询结果（一） %}
 {% asset_img shot7.png DNSdumpster 在线查询结果（二） %}
